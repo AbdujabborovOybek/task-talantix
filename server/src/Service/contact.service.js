@@ -46,6 +46,7 @@ class contactServices {
   static async update(id, data) {
     return new Promise((resolve, reject) => {
       try {
+        data.updated = new Date();
         const sql = `UPDATE user SET ? WHERE id = ?`;
         db.query(sql, [data, id], (err, result) => {
           if (err) reject(err);
